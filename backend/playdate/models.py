@@ -1,0 +1,17 @@
+from django.db import models
+from django.authentication.models import User
+
+# Create your models here.
+class PlayDate(models.Model):
+    street =  models.CharField(max_length=100)
+    city =  models.CharField(max_length=100)
+    state =  models.CharField(max_length=100)
+    street =  models.CharField(max_length=100)
+    zipcode =  models.BigIntegerField()
+    userid = models.ManyToManyField(User)
+    playdateid = models.ManyToManyField(PlayDate)
+
+
+
+
+

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DoggiedatesappConfig(AppConfig):
+class PlaydateConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'doggiedatesapp'
+    name = 'playdate'
