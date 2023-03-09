@@ -8,6 +8,7 @@ class PlayDate(models.Model):
     state =  models.CharField(max_length=100)
     street =  models.CharField(max_length=100)
     zipcode =  models.BigIntegerField()
+    # time = models.
     subscribers = models.ManyToManyField(User, related_name="playdate_users")
 
 
