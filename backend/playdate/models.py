@@ -1,5 +1,5 @@
 from django.db import models
-from django.authentication.models import User
+from authentication.models import User
 
 # Create your models here.
 class PlayDate(models.Model):
@@ -8,8 +8,7 @@ class PlayDate(models.Model):
     state =  models.CharField(max_length=100)
     street =  models.CharField(max_length=100)
     zipcode =  models.BigIntegerField()
-    userid = models.ManyToManyField(User)
-    playdateid = models.ManyToManyField(PlayDate)
+    subscribers = models.ManyToManyField(User, related_name="playdate_users")
 
 
 
