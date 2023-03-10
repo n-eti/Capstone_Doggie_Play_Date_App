@@ -9,8 +9,8 @@ class PlayDate(models.Model):
     # street =  models.CharField(max_length=100)
     zipcode =  models.BigIntegerField()
     # time = models.
-    date = models.DateField(input_type: 'date')
-    time = models.TimeField(input_type = 'time')
+    date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
+    time = models.TimeField(auto_now_add=False, auto_now=False, blank=True)
     subscribers = models.ManyToManyField(User, related_name="playdate_users")
 
 
