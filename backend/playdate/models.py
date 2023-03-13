@@ -11,7 +11,7 @@ class PlayDate(models.Model):
     # time = models.
     date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     time = models.TimeField(auto_now_add=False, auto_now=False, blank=True)
-    subscribers = models.ManyToManyField(User, related_name="playdate_users")
+    subscribers_id = models.ManyToManyField(User, related_name="playdate_users")
 
 
 
