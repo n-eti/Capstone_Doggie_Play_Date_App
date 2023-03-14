@@ -2,6 +2,6 @@ from rest_framework import serializers
 from .models import Reviews
 
 class ReviewSearializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         model = Reviews 
-        fields = ['dog-rating', 'owner-rating', 'play_date_rating', 'review']
+        fields = ['id', 'dog_rating', 'owner_rating', 'play_date_rating', 'review']

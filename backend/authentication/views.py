@@ -6,6 +6,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 User = get_user_model()
 
 
+
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 

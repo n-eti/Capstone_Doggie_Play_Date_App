@@ -6,4 +6,5 @@ class Dogs(models.Model):
     gender = models.CharField(max_length=60)
     weight = models.IntegerField()
     age = models.IntegerField()
-    spayedOrNeutered = bool
+    spayedOrNeutered = models.BooleanField(default=False)
+    image_url = models.CharField(max_length=255, blank=True, default="")
