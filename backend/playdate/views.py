@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import PlayDate
 from .serializers import PlayDateSearializer
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -36,6 +36,7 @@ def getdate(request):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def playdate_zipcode(request, zipcode):
 
     playdates = PlayDate.objects.filter(zipcode=zipcode)
@@ -47,7 +48,7 @@ def playdate_zipcode(request, zipcode):
 def surrounding_playdates(request, pk):
 
     try:
-        playdate = PlayDate.objects.get(pk=pk, )
+        playdate = PlayDate.objects.get(pk=pk)
         serializer = PlayDateSearializer(playdate)
         return Response(serializer.data)
     except PlayDate.DoesNotExist:
