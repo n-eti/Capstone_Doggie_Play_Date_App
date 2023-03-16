@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import DisplaySection from "./components/DisplaySection/DisplaySection";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -20,6 +21,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      <HomePage/>
       <Routes>
         <Route
           path="/"

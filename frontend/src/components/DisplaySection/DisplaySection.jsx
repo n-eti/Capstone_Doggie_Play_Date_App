@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import YourPetsList from "../YourPetsList/YourPetsList";
+import YourPlayDatesList from "../YourPlayDatesList/YourPlayDatesList";
 const DisplaySection = ({}) => {
-    return ( 
-        <section id='container'>
+  return (
+    <section id="container">
+      <div>
         <p>container</p>
-        <div>container</div>
-        </section>
+        <YourPetsList/>
+        <YourPlayDatesList/>
+      </div>
+    </section>
+  );
+};
 
-     );
-}
- 
 export default DisplaySection;
