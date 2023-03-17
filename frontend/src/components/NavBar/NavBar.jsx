@@ -1,10 +1,11 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import ZipCodeSearchBar from "../ZipCodeSearchBar/ZipCodeSearchBar";
 import "./NavBar.css";
+import searchZipCode from "../ZipCodeSearchBar/ZipCodeSearchBar"
+import axios from "axios";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
