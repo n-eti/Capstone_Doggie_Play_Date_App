@@ -7,8 +7,8 @@ const HomePageDisplay = ({}) => {
         <section id="container">
         <div>
             <p>dashboard</p>
+        <ZipCodeSearchBar/>
         <DisplaySection/>
-        <Navbar/>
         </div>
         </section>
      );

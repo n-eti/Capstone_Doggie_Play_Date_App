@@ -11,17 +11,16 @@ const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [searchZipCode, setSearchZipCode] = useState('');
-  const [filteredZipCodes, setFilteredZipCodes] = useState(zipCodes)
 
-  const zipCodeCards = filteredZipCodes.map(zipCode => <zipCodeCard zipCode={zipCode}/>)
+  // const zipCodeCards = filteredZipCodes.map(zipCode => <zipCodeCard zipCode={zipCode}/>)
   
-  const handleSearch = () => {
-    const newFilteredZipCodes = zipCodes.filter((zipCode) => 
-    zipCode.title.toLowerCase().includes(searchZipCode.toLowerCase()),
-    );
+  // const handleSearch = () => {
+  //   const newFilteredZipCodes = zipCodes.filter((zipCode) => 
+  //   zipCode.title.toLowerCase().includes(searchZipCode.toLowerCase()),
+  //   );
 
-    setFilteredZipCodes(newFilteredZipCodes)
-  };
+    // setFilteredZipCodes(newFilteredZipCodes)
+
 
   return (
     <div className="navBar">
@@ -37,7 +36,7 @@ const Navbar = () => {
           ) : (
             <button onClick={() => navigate("/login")}>Sign In</button>
           )}
-          <ZipCodeSearchBar value={searchZipCode} onChange= {setSearchZipCode} onSubmit={handleSearch}/>
+       
         </li>
       </ul>
     </div>

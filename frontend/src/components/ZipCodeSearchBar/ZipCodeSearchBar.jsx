@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
 
 const ZipCodeSearchBar = () => { 
+  const [user,token]= useAuth()
   const [searchZipCode, setSearchZipCode] = useState('');
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -10,7 +12,8 @@ const ZipCodeSearchBar = () => {
   useEffect(() => { 
     const fetchData = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/getplaydate?zipcode=');
+      const response = await axios.get('http://127.0.0.1:8000/api/getplaydate/', {headers:{Authorization: 'Bearer ' + token}});
+      console.log(response.data);
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -23,8 +26,9 @@ const ZipCodeSearchBar = () => {
 
 useEffect(() => {
   const results = users.filter((user) =>
-    user.name.toLowerCase().inculdes(searchZipCode.toLowerCase())
-);
+   user.zipcode == searchZipCode
+  );
+  console.log(results)
 
 setFilteredUsers(results);
 }, [searchZipCode, users]);
@@ -37,7 +41,13 @@ setFilteredUsers(results);
         value={searchZipCode}
         onChange={(event) => setSearchZipCode(event.target.value)}
       />
-      <button onClick={onSubmit}>Search</button>
+     
+        {filteredUsers.map((thing) => (
+          <div key={thing.id}>
+            {thing.street} - {thing.city} - {thing.state} - {thing.zipcode} - {thing.date} - {thing.time}
+          </div>
+        ))}
+  
     </div>
   );
   };

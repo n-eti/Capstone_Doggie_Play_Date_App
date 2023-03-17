@@ -21,7 +21,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <HomePage/>
       <Routes>
         <Route
           path="/"

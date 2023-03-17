@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 const YourPetsList = (props) => {
   const { title, content } = props;
   
-  const response = axios.get("http://127.0.0.1:8000/api/1/");
-  console.log(response.data);
+  // const response = axios.get("http://127.0.0.1:8000/api/1/");
+  // console.log(response.data);
 
   return (
     <div className="YourPetsList">
