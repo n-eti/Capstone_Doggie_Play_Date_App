@@ -1,12 +1,27 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import ZipCodeSearchBar from "../ZipCodeSearchBar/ZipCodeSearchBar";
 import "./NavBar.css";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [searchZipCode, setSearchZipCode] = useState('');
+  const [filteredZipCodes, setFilteredZipCodes] = useState(zipCodes)
+
+  const zipCodeCards = filteredZipCodes.map(zipCode => <zipCodeCard zipCode={zipCode}/>)
+  
+  const handleSearch = () => {
+    const newFilteredZipCodes = zipCodes.filter((zipCode) => 
+    zipCode.title.toLowerCase().includes(searchZipCode.toLowerCase()),
+    );
+
+    setFilteredZipCodes(newFilteredZipCodes)
+  };
+
   return (
     <div className="navBar">
       <ul>
@@ -21,6 +36,7 @@ const Navbar = () => {
           ) : (
             <button onClick={() => navigate("/login")}>Sign In</button>
           )}
+          <ZipCodeSearchBar value={searchZipCode} onChange= {setSearchZipCode} onSubmit={handleSearch}/>
         </li>
       </ul>
     </div>
