@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
+import Pet from "../Pet/Pet";
+import YourPets from "../YourPets/YourPets";
 
 const PetsList = (props) => {
-    
-    return ( <div><h1>
-        My Pets:</h1></div> );
+  let pets = props.data.map((pet) => {
+    return (
+     <Pet pet={pet}/>
+    );
+  });
+
+  return <div>{pets}</div>;
 };
- 
+
 export default PetsList;
