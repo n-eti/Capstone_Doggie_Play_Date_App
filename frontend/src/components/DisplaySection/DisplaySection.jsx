@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PetsList from "../PetsList/PetsList";
-import YourPlayDatesList from "../YourPlayDatesList/YourPlayDatesList";
 
 function DisplaySection() {
   const [pets, setPets] = useState([
