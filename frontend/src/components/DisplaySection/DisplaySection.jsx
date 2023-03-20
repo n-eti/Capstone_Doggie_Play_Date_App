@@ -1,15 +1,24 @@
 import React, { useState } from "react";
-import YourPetsList from "../YourPetsList/YourPetsList";
+import PetsList from "../PetsList/PetsList";
 import YourPlayDatesList from "../YourPlayDatesList/YourPlayDatesList";
-const DisplaySection = ({}) => {
+
+function DisplaySection() {
+  const [pets, setPets] = useState([
+    {
+      name: "Amien",
+      breed: "Maltipoo",
+      gender: "Male",
+      age: "1",
+      weight: "24 lbs",
+      spayedOrNeutered: "Yes",
+    },
+  ]);
+
   return (
-    <section id="container">
-      <div>
-        <p>container</p>
-        <YourPetsList/>
-        <YourPlayDatesList/>
-      </div>
-    </section>
+    <div id="DisplaySection">
+      <PetsList data={pets} />
+      <YourPlayDatesList />
+    </div>
   );
 };
 
