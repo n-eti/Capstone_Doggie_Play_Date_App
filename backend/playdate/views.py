@@ -12,7 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def getdate(request):
-    if request.method == 'GET':
+    if request.method == 'GET': 
 
         zipcode = request.query_params.get('zipcode')
 

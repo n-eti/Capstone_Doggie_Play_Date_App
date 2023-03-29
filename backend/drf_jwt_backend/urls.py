@@ -22,5 +22,6 @@ urlpatterns = [
     path('api/cars/', include('cars.urls')),
     path('api/getplaydate/', include ('playdate.urls')),
     path('api/reviews/', include ('reviews.urls')),
+    path('api/add_dog_info/', include ('dogs.urls'))
     # path('api/getdogid/', include ('dogs.urls')),
 ]
