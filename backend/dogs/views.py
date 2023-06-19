@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def dog_id(request, id):
+def dogs_id(request, id):
 
     if request.method == 'GET':
 
