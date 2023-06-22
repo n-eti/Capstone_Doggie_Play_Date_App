@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from .models import PlayDate
-from .serializers import PlayDateSearializer
+from .serializers import PlayDateSerializer
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
@@ -21,10 +21,10 @@ def getdate(request):
         if zipcode:
             dates.filter(zipcode=zipcode)
 
-        serializer = PlayDateSearializer(dates, many=True)
+        serializer = PlayDateSerializer(dates, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = PlayDateSearializer(data=request.data)
+        serializer = PlayDateSerializer(data=request.data)
         if serializer.is_valid() == True:
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -40,16 +40,16 @@ def getdate(request):
 def playdate_zipcode(request, zipcode):
 
     playdates = PlayDate.objects.filter(zipcode=zipcode)
-    serializer = PlayDateSearializer(playdates, many=True)
+    serializer = PlayDateSerializer(playdates, many=True)
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def surrounding_playdates(request, pk):
+# @api_view(['GET'])
+# def surrounding_playdates(request, id):
 
-    try:
-        playdate = PlayDate.objects.get(pk=pk)
-        serializer = PlayDateSearializer(playdate)
-        return Response(serializer.data)
-    except PlayDate.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+#     try:
+#         playdate = PlayDate.objects.get(id=id)
+#         serializer = PlayDateSerializer(playdate)
+#         return Response(serializer.data)
+#     except PlayDate.DoesNotExist:
+#         return Response(status=status.HTTP_404_NOT_FOUND)
